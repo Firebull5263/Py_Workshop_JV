@@ -60,3 +60,17 @@ Connect the repository to Streamlit Community Cloud.
 Deploy.
 
 No additional configuration required.
+
+Supports
+
+✔ Regression
+
+✔ Binary Classification
+
+✔ Multiclass Classification
+
+✔ Time Series
+
+✔ Generic Tabular Data
+
+✔ Automatic Dataset Detection
