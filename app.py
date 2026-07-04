@@ -76,25 +76,25 @@ with tabs[2]:
 
     trainer = ModelTrainer()
 
-    model = trainer.train(processed)
+    training_result = trainer.train(processed)
 
 with tabs[3]:
 
     evaluator = ModelEvaluator()
 
-    evaluator.render(model)
+    evaluator.render(training_result)
 
 with tabs[4]:
 
     visualizer = Visualizer()
 
-    visualizer.render(model)
+    visualizer.render(training_result)
 
 with tabs[5]:
 
     reports = ReportGenerator()
 
-    reports.render(model)
+    reports.render(training_result)
 
 st.markdown(
 """
