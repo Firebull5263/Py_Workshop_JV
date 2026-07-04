@@ -1,4 +1,4 @@
-"""
+r"""
 Dataset inspection and automatic metadata detection.
 """
 
@@ -51,6 +51,18 @@ class DatasetDetector:
             raise ValueError(
                 "Dataset requires at least two columns."
             )
+
+        # Attempt to parse date columns using guess_timestamp
+        potential_timestamp_col = guess_timestamp(df)
+
+        if potential_timestamp_col and potential_timestamp_col in df.columns:
+            try:
+                # Convert to datetime, coercing errors to NaT for robustness
+                df[potential_timestamp_col] = pd.to_datetime(df[potential_timestamp_col], errors='coerce')
+                # Rows with unparseable timestamps will have NaT. You might choose to drop them here if desired:
+                # df.dropna(subset=[potential_timestamp_col], inplace=True)
+            except Exception as e:
+                self.logger.warning(f"Could not convert column '{potential_timestamp_col}' to datetime: {e}")
 
         df = df.drop_duplicates()
 
