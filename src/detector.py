@@ -33,18 +33,6 @@ class DatasetDetector:
                 uploaded_file,
                 encoding="utf-8",
             )
-            if df.empty:
-
-                raise ValueError(
-                    "Dataset contains no rows."
-                )
-
-            if len(df.columns) < 2:
-
-                raise ValueError(
-                    "Dataset requires at least two columns."
-                )
-
         except UnicodeDecodeError:
 
             df = pd.read_csv(
@@ -52,10 +40,21 @@ class DatasetDetector:
                 encoding="latin1",
             )
 
+        if df.empty:
+
+            raise ValueError(
+                "Dataset contains no rows."
+            )
+
+        if len(df.columns) < 2:
+
+            raise ValueError(
+                "Dataset requires at least two columns."
+            )
+
         df = df.drop_duplicates()
 
         return df
-
     def analyse(
         self,
         df: pd.DataFrame,
