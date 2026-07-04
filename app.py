@@ -75,17 +75,17 @@ with tabs[1]:
 
 with tabs[2]:
 
-try:
+    try:
 
-    trainer = ModelTrainer()
+        trainer = ModelTrainer()
 
-    training_result = trainer.train(processed)
+        training_result = trainer.train(processed)
 
-except Exception as ex:
+    except Exception as ex:
 
-    st.error(
-        "Model training failed."
-    )
+        st.error(
+            "Model training failed."
+        )
 
     with st.expander(
         "Technical Details"
