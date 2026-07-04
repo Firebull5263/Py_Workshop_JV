@@ -23,7 +23,7 @@ class DatasetDetector:
 
     @st.cache_data(show_spinner=False)
     def load_dataset(
-        self,
+        _self,
         uploaded_file,
     ) -> pd.DataFrame:
 
