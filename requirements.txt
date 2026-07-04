@@ -1,43 +1,26 @@
-streamlit
+streamlit>=1.38
 
-streamlit-option-menu
+pandas>=2.2
+numpy>=2.0
 
-streamlit-extras
+scikit-learn>=1.5
 
-streamlit-lottie
+xgboost>=2.1
 
-plotly
+plotly>=5.24
 
-pandas
+matplotlib>=3.9
 
-numpy
+openpyxl>=3.1
 
-xgboost
+reportlab>=4.2
 
-scikit-learn
+joblib>=1.4
 
-joblib
+scipy>=1.14
 
-shap
+python-dateutil>=2.9
 
-openpyxl
+chardet>=5.2
 
-reportlab
-
-fpdf2
-
-matplotlib
-
-plotly-resampler
-
-kaleido
-
-scipy
-
-statsmodels
-
-pyyaml
-
-Pillow
-
-requests
+tqdm>=4.66
