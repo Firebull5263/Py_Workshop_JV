@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import streamlit as st
+import traceback
 
 from src.detector import DatasetDetector
 from src.preprocessing import AdaptivePreprocessor
@@ -74,9 +75,24 @@ with tabs[1]:
 
 with tabs[2]:
 
+try:
+
     trainer = ModelTrainer()
 
     training_result = trainer.train(processed)
+
+except Exception as ex:
+
+    st.error(
+        "Model training failed."
+    )
+
+    with st.expander(
+        "Technical Details"
+    ):
+        st.code(traceback.format_exc())
+
+    st.stop()
 
 with tabs[3]:
 
