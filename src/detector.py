@@ -33,6 +33,17 @@ class DatasetDetector:
                 uploaded_file,
                 encoding="utf-8",
             )
+            if df.empty:
+
+                raise ValueError(
+                    "Dataset contains no rows."
+                )
+
+            if len(df.columns) < 2:
+
+                raise ValueError(
+                    "Dataset requires at least two columns."
+                )
 
         except UnicodeDecodeError:
 
